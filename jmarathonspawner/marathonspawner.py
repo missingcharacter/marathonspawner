@@ -286,8 +286,8 @@ class MarathonSpawner(Spawner):
         env.update(dict(
             # Jupyter Hub config
             JPY_USER=self.user.name,
-            JPY_COOKIE_NAME=self.user.server.cookie_name,
-            JPY_BASE_URL=self.user.server.base_url,
+            # JPY_COOKIE_NAME=self.user.server.cookie_name,
+            # JPY_BASE_URL=self.user.server.base_url,
             JPY_HUB_PREFIX=self.hub.server.base_url,
             JPY_USER_WEB_PORT=str(self.user_web_port),
             JPY_USER_SSH_PORT=str(self.user_ssh_port),
