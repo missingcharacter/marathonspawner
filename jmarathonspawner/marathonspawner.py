@@ -160,7 +160,7 @@ class MarathonSpawner(Spawner):
 
     @property
     def container_name(self):
-        return '/%s/%s' % (self.app_prefix, self.user.name)
+        return '/%s/%s-%s' % (self.app_prefix, self.user.name, getattr(self, "name", ""))
 
     def get_state(self):
         state = super(MarathonSpawner, self).get_state()
