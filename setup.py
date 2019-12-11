@@ -24,19 +24,20 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 # Get the current package version.
 version_ns = {}
-with open(pjoin(here, 'marathonspawner', '_version.py')) as f:
+with open(pjoin(here, 'jmarathonspawner', '_version.py')) as f:
     exec(f.read(), {}, version_ns)
 
 
 setup_args = dict(
-    name='marathonspawner',
-    packages=['marathonspawner'],
+    name='jmarathonspawner',
+    packages=['jmarathonspawner'],
     version=version_ns['__version__'],
     description="""MarathonSpawner: A custom spawner for Jupyterhub.""",
     long_description="Spawn single-user servers with Marathon.",
     author="Original: Viktor Gal - Updated: John Omernik",
-    author_email="viktor.gal@maeth.com",
-    url="https://github.com/JohnOmernik/marathonspawner",
+    author_email="shubham.sha12@gmail.com",
+    url="https://github.com/gabber12/marathonspawner",
+    download_url="https://github.com/gabber12/marathonspawner/archive/v1.tar.gz",
     license="ISC",
     platforms="Linux, Mac OS X",
     keywords=['Interactive', 'Interpreter', 'Shell', 'Web', 'Marathon'],
