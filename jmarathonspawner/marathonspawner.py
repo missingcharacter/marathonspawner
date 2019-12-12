@@ -160,7 +160,12 @@ class MarathonSpawner(Spawner):
 
     @property
     def container_name(self):
-        return '/%s/%s' % (self.app_prefix, self.user.name)
+        self.log.info("Container Name : %s / %s / %s",self.app_prefix, self.user.name, self.name )
+        try:
+            self.log.info("Debug %s", json.dumps(self.name))
+        except:
+            self.log.info("Could not log self")
+        return '/%s/%s%s' % (self.app_prefix, self.user.name, self.name)
 
     def get_state(self):
         state = super(MarathonSpawner, self).get_state()
