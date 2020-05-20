@@ -28,8 +28,8 @@ class MarathonSpawner(Spawner):
     # Load the app image
     app_image = Unicode("jupyterhub/singleuser", config=True)
 
-    # The command to run 
-    app_cmd = Unicode("jupyter notebook", config=True)
+    # The command to run
+    app_cmd = Unicode(self.cmd, config=True)
 
     # This is the prefix in Marathon
     app_prefix = Unicode(
@@ -93,6 +93,8 @@ class MarathonSpawner(Spawner):
     shared_notebook_dir = Unicode(
     '', help="Shared Notebook location that users will get a link to in their notebook location - can be blank"
     ).tag(config=True)
+
+    docker_parameters = List([], help="Command-line options for the 'docker run' command executed by the Mesos containerizer").tag(config=True)
 
     ports = List(
         [8888],
@@ -375,7 +377,8 @@ class MarathonSpawner(Spawner):
         docker_container = MarathonDockerContainer(
             image=self.app_image,
             network=self.network_mode,
-            port_mappings=self.get_port_mappings())
+            port_mappings=self.get_port_mappings(),
+            parameters=self.docker_parameters)
 
         app_container = MarathonContainer(
             docker=docker_container,
