@@ -29,7 +29,7 @@ class MarathonSpawner(Spawner):
     app_image = Unicode("jupyterhub/singleuser", config=True)
 
     # The command to run
-    app_cmd = Unicode(self.cmd, config=True)
+    app_cmd = Unicode("jupyter notebook", config=True)
 
     # This is the prefix in Marathon
     app_prefix = Unicode(
